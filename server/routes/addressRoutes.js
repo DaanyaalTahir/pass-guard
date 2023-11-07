@@ -8,7 +8,6 @@ router.post("/addAddress", (req, res) => {
   const address = req.body.address;
   const number = req.body.phoneNumber;
   const user_id = req.body.user_id;
-  // const encryptedPass = encrypt(password);
 
   db.query(
     "INSERT INTO account_addresses (title, person_name, address, phone_number, user_id) VALUES (?,?,?,?,?)",
@@ -33,9 +32,6 @@ router.get("/getAddresses", (req, res) => {
       if (err) {
         res.send({ err: err });
       }
-      // for(let i=0;i<result.length;i++){
-      //   result[i].pass = decrypt(result[i].pass, result[i].iv);
-      // }
       res.send(result);
     }
   );

@@ -6,7 +6,6 @@ router.post("/addNote", (req, res) => {
   const title = req.body.noteTitle;
   const note = req.body.note;
   const user_id = req.body.user_id;
-  // const encryptedPass = encrypt(password);
 
   db.query(
     "INSERT INTO account_notes (title, note, user_id) VALUES (?,?,?)",
@@ -30,9 +29,6 @@ router.get("/getNotes", (req, res) => {
       if (err) {
         res.send({ err: err });
       }
-      // for(let i=0;i<result.length;i++){
-      //   result[i].pass = decrypt(result[i].pass, result[i].iv);
-      // }
       res.send(result);
     }
   );

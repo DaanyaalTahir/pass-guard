@@ -12,9 +12,6 @@ router.post("/addCard", (req, res) => {
   const default_img = req.body.default_img;
   const user_id = req.body.user_id;
 
-  // console.log(card_vendor,card_type,name,card_number,securityCode,expiryDate,default_img,user_id)
-  // const encryptedPass = encrypt(password);
-
   db.query(
     "INSERT INTO account_cards (card_vendor,card_type,name_on_card, card_number, security_code, expiry_date, default_img, user_id) VALUES (?,?,?,?,?,?,?,?)",
     [
@@ -46,9 +43,6 @@ router.get("/getCards", (req, res) => {
       if (err) {
         res.send({ err: err });
       }
-      // for(let i=0;i<result.length;i++){
-      //   result[i].pass = decrypt(result[i].pass, result[i].iv);
-      // }
       res.send(result);
     }
   );
